@@ -1,5 +1,5 @@
 # Raw Data
 
-   Place your original, unmodified source data here.
+This is the Single Source of Truth.
 
-   **Never edit files in this folder.** This is your source of truth.
+SINGLE Data Source that is the Genesis of All Analysis
