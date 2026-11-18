@@ -92,7 +92,6 @@ operation-stock-balance/
 │
 ├── reports/
 │   ├── OperationStockBalance_Report.pdf      # Written report
-│   └── Cedar Finch KPI DAX_Reference.pdf            # KPI definitions and DAX measures
 │
 ├── visuals/
 │   ├── data_model.png                # Power Pivot diagram view
@@ -215,6 +214,8 @@ The brief listed four possible causes, none of them confirmed. So I treated each
 
 **Network baseline (Jan–Sep 2025):**
 
+![CoreKPI](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/Core%20KPIs.png)
+
 | KPI | Value |
 |-----|-------|
 | Requested units | 136,775 |
@@ -263,6 +264,15 @@ The top five products hold about 73% of inventory value but only about 9% of dem
 **Insight 4: Supplier delays are real but limited to one supplier, and they are not behind the main stockouts.**
 Maple Street Wholesale (SUP04) delivers in about 13.5 days against a planned 7, with 88% of POs late and an average slip of 6.5 days. The other four suppliers are late on 12% of POs or fewer, with average slips under 0.3 days. The worst stockout products (SKU009–SKU012) come from Clearbrook Essentials, which delivers on time. So the main availability problem is policy and allocation, not supply.
 
+
+**Dashboard Snapshots**
+
+![Executive Overview](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP1.png)
+
+![Product Performance](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP2.png)
+
+![ProductWarehouse Performance](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP3.png)
+
 ---
 
 ## 10. Recommendations
@@ -300,7 +310,7 @@ Maple Street Wholesale (SUP04) delivers in about 13.5 days against a planned 7, 
 |-------------|-------------|----------|
 | Analysis workbook | Power Query cleaning steps, star-schema Data Model, DAX measures, signal analysis and interactive dashboard | `/Cedar Finch Inventory Analysis.xlsx ` |
 | Written report | Business objective, methodology, model design, insights, recommendations, limitations and group contributions | `/reports/OperationStockBalance_Report.pdf` |
-| KPI & DAX reference | Plain-language KPI definitions and the DAX behind each measure | ![KP & DAX Reference](https://docs.google.com/document/d/1FWuoogq_cIZ8eynIW8Dx1lFrATm8wwAvMRKR14eKmmM/edit?tab=t.0#heading=h.3z9dgffxwai8) |
+| KPI & DAX reference | Plain-language KPI definitions and the DAX behind each measure | [KPI & DAX Reference](https://docs.google.com/document/d/1FWuoogq_cIZ8eynIW8Dx1lFrATm8wwAvMRKR14eKmmM/edit?tab=t.0#heading=h.3z9dgffxwai8) |
 | Model diagram | Power Pivot diagram view of the star schema | `/visuals/data_model.png` |
 
 ---
