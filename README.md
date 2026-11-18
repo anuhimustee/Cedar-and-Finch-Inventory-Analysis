@@ -3,6 +3,7 @@
 
 **Project type:** End-to-end analysis (data cleaning and wrangling, data modelling, diagnostic analysis, interactive dashboard)
 
+![Executive Overview](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP1.png)
 ---
 
 ## Table of Contents
