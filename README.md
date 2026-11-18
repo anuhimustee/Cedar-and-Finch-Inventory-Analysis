@@ -191,68 +191,18 @@ Star schema with 1 fact table and 5 dimensions. Every relationship is one-to-man
 
 ## 7. Entity Relationship Diagram
 
-```mermaid
-erDiagram
-    DIM_DATE ||--o{ FACT_DAILY_INVENTORY : "Snapshot_Date"
-    DIM_PRODUCT ||--o{ FACT_DAILY_INVENTORY : "Product_ID"
-    DIM_WAREHOUSE ||--o{ FACT_DAILY_INVENTORY : "Warehouse_ID"
-    DIM_PRODUCT_WAREHOUSE ||--o{ FACT_DAILY_INVENTORY : "PW_Key"
-    DIM_SUPPLIER ||--o{ DIM_PRODUCT : "Supplier_ID"
-
-    FACT_DAILY_INVENTORY {
-        string Record_ID PK
-        date Snapshot_Date FK
-        string Product_ID FK
-        string Warehouse_ID FK
-        string PW_Key FK
-        int Requested_Units
-        int Fulfilled_Units
-        int Unfulfilled_Units
-        int Closing_Stock_Units
-        int Open_PO_Units
-    }
-    DIM_DATE {
-        date Date PK
-        int Year
-        int Month
-        int Week
-    }
-    DIM_PRODUCT {
-        string Product_ID PK
-        string Product_Name
-        string Category
-        float Unit_Cost_USD
-        string Supplier_ID FK
-    }
-    DIM_WAREHOUSE {
-        string Warehouse_ID PK
-        string Warehouse_Name
-        string City
-    }
-    DIM_PRODUCT_WAREHOUSE {
-        string PW_Key PK
-        int Planned_Lead_Time_Days
-        int Reorder_Point_Units
-        int Safety_Stock_Units
-        int Standard_Order_Quantity
-    }
-    DIM_SUPPLIER {
-        string Supplier_ID PK
-        string Supplier_Name
-        string Supplier_State
-    }
-```
+![data_model](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/data_model.png)
 
 **Table Relationships Summary:**
 
 | Relationship | Join Key | Type |
 |-------------|----------|------|
-| `Fact_Daily_Inventory` → `Dim_Date` | `Snapshot_Date` | Many-to-One (active) |
-| `Fact_Daily_Inventory` → `Dim_Date` | `Next_PO_*` dates | Many-to-One (inactive, used via `USERELATIONSHIP`) |
-| `Fact_Daily_Inventory` → `Dim_Product` | `Product_ID` | Many-to-One |
-| `Fact_Daily_Inventory` → `Dim_Warehouse` | `Warehouse_ID` | Many-to-One |
-| `Fact_Daily_Inventory` → `Dim_Product_Warehouse` | `PW_Key` | Many-to-One |
-| `Dim_Product` → `Dim_Supplier` | `Supplier_ID` | Many-to-One |
+| `Fact_Inventory_Data` → `Calender` | `Snapshot_Date` | Many-to-One (active) |
+| `Fact_Inventory_Data` → `Calendar` | `Next_PO_*` dates | Many-to-One (inactive, used via `USERELATIONSHIP`) |
+| `Fact_Inventory_Data` → `Dim_Product` | `Product_ID` | Many-to-One |
+| `Fact_Inventory_Data` → `Dim_Warehouse` | `Warehouse_ID` | Many-to-One |
+| `Fact_Inventory_Data` → `Dim_ProductWarehouse` | `PW_Key` | Many-to-One |
+| `Fact_Inventory_Data` → `Dim_Supplier` | `Supplier_ID` | Many-to-One |
 
 ---
 
@@ -260,7 +210,7 @@ erDiagram
 
 ### Analytical Approach
 
-The brief listed four possible causes, none of them confirmed. We treated each one as a hypothesis and tested it at product-warehouse level, after setting a network baseline. The work ran from descriptive (what is happening), to diagnostic (why), to prescriptive (what-if changes to reorder points and transfers). Every recommendation had to consider reallocation and policy changes before any new purchasing.
+The brief listed four possible causes, none of them confirmed. So I treated each one as a hypothesis and tested it at product-warehouse level, after setting a network baseline. The work ran from descriptive (what is happening), to diagnostic (why), to prescriptive (what-if changes to reorder points and transfers). Every recommendation had to consider reallocation and policy changes before any new purchasing.
 
 **Network baseline (Jan–Sep 2025):**
 
@@ -356,23 +306,23 @@ Maple Street Wholesale (SUP04) delivers in about 13.5 days against a planned 7, 
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Analysis workbook | Power Query cleaning steps, star-schema Data Model, DAX measures, signal analysis and interactive dashboard | `/workbook/DWD_C09_Group03_StockBalance.xlsx` |
-| Written report | Business objective, methodology, model design, insights, recommendations, limitations and group contributions | `/reports/DWD_C09_Group03_StockBalance_Report.pdf` |
-| KPI & DAX reference | Plain-language KPI definitions and the DAX behind each measure | `/reports/Cedar_Finch_KPI_DAX_Reference.pdf` |
+| Analysis workbook | Power Query cleaning steps, star-schema Data Model, DAX measures, signal analysis and interactive dashboard | `/Cedar Finch Inventory Analysis.xlsx ` |
+| Written report | Business objective, methodology, model design, insights, recommendations, limitations and group contributions | `/reports/OperationStockBalance_Report.pdf` |
+| KPI & DAX reference | Plain-language KPI definitions and the DAX behind each measure | ![KP & DAX Reference](https://docs.google.com/document/d/1FWuoogq_cIZ8eynIW8Dx1lFrATm8wwAvMRKR14eKmmM/edit?tab=t.0#heading=h.3z9dgffxwai8) |
 | Model diagram | Power Pivot diagram view of the star schema | `/visuals/data_model.png` |
 
 ---
 
 ## 14. Author
 
-**Anuhi**
-Associate Project Manager (CAPM) | Data Analytics Instructor
-Team Lead, Group 03, Data With Danny Cohort 9 (10-member team)
+**Sir Mustee**
+Data Analyst • Logistics Analyst --> Supply Chain Analyst
 
-- 🔗 [LinkedIn URL]
-- 💼 [Portfolio or GitHub profile URL]
-- 📧 [Email - optional]
+- 🔗[LinkedIn](https://www.linkedin.com/in/anuhi-mustapha/)
+- 💼[Medium Article link](https://medium.com/@helloanuhi/the-warehouse-was-full-the-customers-left-empty-handed-42b6a68ccfaf)
 
 ---
 
-*Last updated: November 2026*
+> ***Last updated: Nov 2026***
+
+
