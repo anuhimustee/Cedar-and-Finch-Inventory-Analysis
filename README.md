@@ -23,9 +23,8 @@
 9. [Key Insights](#9-key-insights)
 10. [Recommendations](#10-recommendations)
 11. [Assumptions & Limitations](#11-assumptions--limitations)
-12. [Future Enhancements](#12-future-enhancements)
-13. [Deliverables](#13-deliverables)
-14. [Author](#14-author)
+12. [Deliverables](#12-deliverables)
+13. [Author](#13-author)
 
 ---
 
@@ -148,7 +147,7 @@ Interactive Excel dashboard + written PDF report
 
 Star schema with 1 fact table and 5 dimensions. Every relationship is one-to-many and filters in one direction.
 
-### Fact table: `Fact_Daily_Inventory`
+### Fact table: `Fact_Inventory_Data`
 **Grain:** one product, in one warehouse, on one day.
 
 | Field Name | Data Type | Description | Example Value |
@@ -295,16 +294,7 @@ Maple Street Wholesale (SUP04) delivers in about 13.5 days against a planned 7, 
 
 ---
 
-## 12. Future Enhancements
-
-- [ ] Add selling prices, holding-cost rates and transfer costs so the transfer and rundown recommendations can be valued in profit, not just units.
-- [ ] Re-run the analysis on a full 12-month extract to test seasonality and set seasonal reorder points.
-- [ ] Use PO-level data with PO IDs to replace the snapshot-based supplier view with a true delivery audit.
-- [ ] Turn the transfer rule into a daily exception report that flags product-warehouse pairs below reorder point while the other site is in surplus.
-
----
-
-## 13. Deliverables
+## 12. Deliverables
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
@@ -315,7 +305,7 @@ Maple Street Wholesale (SUP04) delivers in about 13.5 days against a planned 7, 
 
 ---
 
-## 14. Author
+## 13. Author
 
 **Sir Mustee**
 Data Analyst • Logistics Analyst --> Supply Chain Analyst
