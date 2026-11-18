@@ -2,11 +2,13 @@
 
 > Disclaimer: Cedar & Finch Distribution does not exist. Every product, warehouse and supplier named in this piece is a made-up name attached to simulated data. The data was built to simulate a real-life inventory problem for a group case study (Data With Danny, Cohort 9). Every figure in this article is real in the sense that I calculated it correctly from that data. Nothing else about it is real. Think of it as a fire drill for supply chain analytics: the alarms work, the fire doesn’t exist.
 
+![Executive Overview](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP1.png)
+
 > *An Excel, Power Query, Power Pivot and DAX investigation into why a distributor runs out of stock while holding plenty of cash in inventory, and what it can change before buying more.*
 
 **Project type:** End-to-end analysis (data cleaning and wrangling, data modelling, diagnostic analysis, interactive dashboard)
 
-![Executive Overview](https://github.com/anuhimustee/Cedar-and-Finch-Inventory-Analysis/blob/main/visuals/FP1.png)
+
 ---
 
 ## Table of Contents
