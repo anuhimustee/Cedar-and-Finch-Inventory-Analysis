@@ -1,5 +1,8 @@
 # Operation Stock Balance: Cedar & Finch Inventory Analysis
-> An Excel, Power Query, Power Pivot and DAX investigation into why a distributor runs out of stock while holding plenty of cash in inventory, and what it can change before buying more.
+
+> Disclaimer: Cedar & Finch Distribution does not exist. Every product, warehouse and supplier named in this piece is a made-up name attached to simulated data. The data was built to simulate a real-life inventory problem for a group case study (Data With Danny, Cohort 9). Every figure in this article is real in the sense that I calculated it correctly from that data. Nothing else about it is real. Think of it as a fire drill for supply chain analytics: the alarms work, the fire doesn’t exist.
+
+> *An Excel, Power Query, Power Pivot and DAX investigation into why a distributor runs out of stock while holding plenty of cash in inventory, and what it can change before buying more.*
 
 **Project type:** End-to-end analysis (data cleaning and wrangling, data modelling, diagnostic analysis, interactive dashboard)
 
@@ -26,7 +29,7 @@
 
 ## 1. Project Overview
 
-**Context:** Cedar & Finch Distribution (a fictional US distributor of household cleaning products, paper goods and home essentials) supplies retailers from two regional warehouses. At the year-end review, the Finance Director flagged that a lot of cash was tied up in inventory while the sales team kept reporting orders they couldn't fill.
+**Context:** Cedar & Finch Distribution (a simulated US distributor of household cleaning products, paper goods and home essentials) supplies retailers from two regional warehouses. At the year-end review, the Finance Director flagged that a lot of cash was tied up in inventory while the sales team kept reporting orders they couldn't fill.
 
 **Problem Statement:** Why do stockouts and excess inventory exist at the same time, and can changes to replenishment settings or stock allocation improve availability without simply buying more?
 
@@ -83,16 +86,18 @@ operation-stock-balance/
 ├── data/
 │   └── raw/
 │       └── Cedar_Finch_Inventory_Raw_Dataset.xlsx    # Original source data, never edited
-│   └── expressed/
+│   └── processed/
 │       └── Cedar Finch Inventory Analysis.xlsx    # Power Query steps, Data Model, DAX, analysis and dashboard       
 │
 ├── reports/
-│   ├── DWD_C09_Group03_StockBalance_Report.pdf      # Written report
-│   └── Cedar_Finch_KPI_DAX_Reference.pdf            # KPI definitions and DAX measures
+│   ├── OperationStockBalance_Report.pdf      # Written report
+│   └── Cedar Finch KPI DAX_Reference.pdf            # KPI definitions and DAX measures
 │
 ├── visuals/
-│   ├── data_model.png                               # Power Pivot diagram view
-│   └── dashboard.png                                # Dashboard screenshot
+│   ├── data_model.png                # Power Pivot diagram view
+│   └── FP1.png                       # Executive Overview
+│   └── FP2.png                       # Product Performance 
+│   └── FP3.png                       # Product-Warehouse Performance
 │
 ├── docs/
 │   └── Cedar_Finch_Inventory_Case_Study_Brief.pdf   # Original case brief
@@ -105,7 +110,7 @@ operation-stock-balance/
 ## 5. Data Workflow
 
 ```
-Raw Excel extract (Inventory_Raw, 10,000 rows × 34 columns)
+Raw Excel extract (Cedar Finch Inventory Raw Data, 10,000 rows × 34 columns)
       ↓
 Power Query: reference query off the raw table (source preserved)
       ↓
@@ -118,7 +123,7 @@ DAX measures: baseline KPIs and four-signal diagnostics
 Interactive Excel dashboard + written PDF report
 ```
 
-1. **Source:** A single wide Excel sheet (`Inventory_Raw`) of synthetic teaching data: 10,000 rows, 34 columns, covering 20 products, 2 warehouses and 250 days. A `ReadMe` and `Data_Dictionary` sheet came with it.
+1. **Source:** A single wide Excel sheet (`Cedar Finch Inventory Raw Data`) of synthetic teaching data: 10,000 rows, 34 columns, covering 20 products, 2 warehouses and 250 days. A `ReadMe` and `Data_Dictionary` sheet came with it.
 2. **Ingestion:** Loaded into Power Query from the workbook table. All cleaning runs on a reference query, so the raw table is never changed.
 3. **Cleaning:** The scan found four real data-quality issues:
    - `Product_Name`: 150 rows with leading/trailing spaces → Trim and Clean.
